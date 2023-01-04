@@ -15,7 +15,7 @@ export default () => {
       <Header setFindMovie={setFindMovie} />
 
       <Catalog findMovie={findMovie} currentPage={currentPage} />
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      {/* <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} /> */}
     </QueryClientProvider>
   );
 };

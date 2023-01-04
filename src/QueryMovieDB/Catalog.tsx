@@ -39,8 +39,8 @@ function Catalog({
   }, [findMovie]);
 
   return (
-    <div className="bg-slate-800 mt-16 pt-3  pb-20 px-3 xl:px-0 overflow-hidden">
-      <h2 className="text-2xl text-white font-bold  text-center text-title-1 md:mb-10">
+    <div className="bg-slate-800 mt-6 pt-3  pb-20 px-3 xl:px-0 overflow-hidden">
+      <h2 className="text-2xl text-white font-bold  text-center text-title-1 md:mb-4">
         Click on the movies to learn more!
       </h2>
 

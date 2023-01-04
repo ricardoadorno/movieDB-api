@@ -26,10 +26,12 @@ export default () => {
     currency: "USD",
   });
 
+  // query movie
   const API_URI = `https://api.themoviedb.org/3/movie/${movieid}?api_key=${
     import.meta.env.VITE_MOVIEDB_API_KEY
   }`;
 
+  // render data
   useEffect(() => {
     const fetchMovie = async () => {
       const response = await fetch(API_URI);
@@ -54,6 +56,7 @@ export default () => {
           ></i>
         </Link>
         <div className="grid grid-cols-6 gap-4 max-w-2xl">
+          {/* Card Head */}
           <div className="col-span-2">
             <img src={`${IMG_PATH + movie.poster_path}`} alt={movie.title} />
           </div>
@@ -61,47 +64,47 @@ export default () => {
             <h2 className="text-white text-2xl font-bold  ">{movie.title}</h2>
             <p className="text-white text-md ">{movie.overview}</p>
           </div>
-          <div className="text-white text-sm ">
+          {/* Card Content */}
+          <div className="col-span-3 text-white">
             <p>
-              <i className="fas fa-star text-yellow-400"></i>{" "}
-              <strong>Vote Avarage:</strong>
-              {movie.vote_average}
+              <i className="fas fa-star text-yellow-400 pr-2"></i>
+              <strong>Vote Avarage: </strong>
+              {Math.round(movie.vote_average * 10) / 10}
             </p>
             <p>
               {" "}
-              <i className="fas fa-check text-green-400"></i>
+              <i className="fas fa-check text-green-400 pr-2"></i>
               <strong>Status:</strong> {movie.status}{" "}
             </p>
             <p>
               {" "}
-              <i className="fas fa-dollar-sign text-red-400"></i>
+              <i className="fas fa-dollar-sign text-red-400 pr-2"></i>
               <strong>Budget:</strong> {formatter.format(movie.budget)}
             </p>
+
             <p>
               {" "}
-              <i className="fas fa-dollar-sign text-green-400"></i>
+              <i className="fas fa-dollar-sign text-green-400 pr-2"></i>
               <strong>Revenue:</strong> {formatter.format(movie.revenue)}
             </p>
+          </div>
+          <div className="col-span-3 text-white">
             <p>
               {" "}
-              <i className="fas fa-calendar-alt text-blue-400"></i>
+              <i className="fas fa-calendar-alt text-blue-400 pr-2"></i>
               <strong>Release Date:</strong> {movie.release_date}
             </p>
+
             <p>
               {" "}
-              <i className="fas fa-language text-blue-400"></i>
-              <strong>Language:</strong> {movie.original_language}
-            </p>
-            <p>
-              {" "}
-              <i className="fas fa-film text-yellow-400"></i>
+              <i className="fas fa-film text-yellow-400 pr-2"></i>
               <strong>Genre:</strong>{" "}
               {movie.genres?.map((genre: any) => genre.name).join(", ")}
             </p>
             <p>
               {" "}
-              <i className="fas fa-lightbulb text-yellow-400"></i>
-              <strong> Studio:</strong>
+              <i className="fas fa-lightbulb text-yellow-400 pr-2"></i>
+              <strong> Studio: </strong>
               {movie.production_companies
                 ?.map((companie: any) => companie.name)
                 .join(", ")}

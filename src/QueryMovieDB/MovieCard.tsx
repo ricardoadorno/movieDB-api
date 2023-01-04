@@ -16,7 +16,7 @@ function MovieCard({ title, poster, rating, overview, id }: any) {
   };
 
   return (
-    <div className="inline-block w-72 mt-6 group bg-blue-800 drop-shadow rounded-xl">
+    <div className="inline-block w-72 mt-6 group bg-cyan-600 drop-shadow rounded-xl">
       <div className="p-3">
         <Link to={`movie/${id}`}>
           <img

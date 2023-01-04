@@ -3,8 +3,8 @@ import QueryMovieDB from "./QueryMovieDB";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import MoviePage from "./MoviePage";
 
-// TODO fix search
-// TODO do the movie page style
+// TODO fix pagination
+// TODO Hadle exections: blank search, no results, API error
 
 // TODO add user fetch queary
 // TODO add redux for user
@@ -12,7 +12,10 @@ import MoviePage from "./MoviePage";
 function App() {
   return (
     <Router>
-      <nav className="bg-slate-800 p-8  ">
+      <nav
+        className="bg-cyan-500 p-4  box-shadow-2xl
+      "
+      >
         <Link to="/">
           <div className=" flex gap-4 col-span-3 justify-center">
             <i className="fas fa-film text-white text-xl rotate-45"></i>
