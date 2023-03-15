@@ -1,0 +1,103 @@
+@import "variables";
+@import "ultilities";
+
+body {
+  background-color: $background-color;
+  color: $white-color;
+  font-family: "Exo", sans-serif;
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+
+  .card {
+    background-color: $primary-900;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+    }
+
+    .link {
+      color: $white-color;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2rem;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .card_header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      .card_rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 0;
+        .card_rating-icon {
+          color: $secondary-500;
+          margin-right: 0.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+      background-color: $secondary-600;
+      color: $white-color;
+      margin: 0 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: $primary-800;
+      }
+    }
+  }
+}
