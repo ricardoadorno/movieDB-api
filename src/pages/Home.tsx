@@ -1,19 +1,12 @@
 import HomeList from "../components/HomeList";
-import SeachBox from "../components/UI/SeachBox";
+import Header from "../components/UI/Header";
 
 function Home() {
   return (
     <>
       <div className="container">
-        <div className="flex">
-          <h1>Movie DB Api</h1>
-
-          <SeachBox />
-        </div>
-        <div className="divider"></div>
-        <div>
-          <HomeList />
-        </div>
+        <Header />
+        <HomeList />
       </div>
     </>
   );

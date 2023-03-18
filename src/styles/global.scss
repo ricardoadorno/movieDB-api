@@ -2,7 +2,12 @@
 @import "ultilities";
 
 body {
-  background-color: $background-color;
+  background: rgb(217, 119, 6);
+  background: radial-gradient(
+    circle,
+    rgba(217, 119, 6, 1) 0%,
+    rgba(17, 18, 19, 1) 100%
+  );
   color: $white-color;
   font-family: "Exo", sans-serif;
   line-height: 1.5;
@@ -70,34 +75,109 @@ body {
   }
 }
 
-.pagination {
+.pagination-container {
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  height: 4rem;
 
-  ul {
+  .pagination-arrows:nth-child(1) {
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+
+  .pagination-arrows {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    background-color: $primary-700;
+    height: 100%;
+    padding: 0 2rem;
+    border-radius: 0 0.5rem 0.5rem 0;
 
-    li {
-      list-style: none;
+    i {
+      color: $white-color;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+
+  .pagination {
+    box-shadow: 0 10px 10px -10px $primary-900, 0 -10px 10px -10px $primary-900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-700;
+    padding: 0 2rem;
+
+    ul {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0.5rem 1rem;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 0.5rem;
-      background-color: $secondary-600;
-      color: $white-color;
-      margin: 0 0.5rem;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      &:hover {
-        background-color: $primary-800;
+      padding: 0;
+      margin: 0;
+
+      li {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 1rem;
+        width: 2rem;
+        height: 2rem;
+        background-color: $primary-700;
+        color: $white-color;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          background-color: $primary-900;
+        }
+
+        &.active {
+          background-color: $secondary-600;
+        }
       }
+    }
+  }
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  input[type="text"] {
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+    background-color: $gray-100-color;
+    font-size: 1rem;
+    font-weight: 600;
+    height: 100%;
+    outline: none;
+    border: none;
+
+    &:focus {
+      border-color: $primary-500;
+      background-color: $gray-200-color;
+    }
+  }
+
+  button {
+    flex: 0 0 auto;
+    width: 3.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-weight: 600;
+    background-color: $primary-700;
+    color: $white-color;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $primary-500;
     }
   }
 }

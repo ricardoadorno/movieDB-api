@@ -31,28 +31,67 @@ function HomeList() {
           <Card key={movie.id} movie={movie} />
         ))}
       </div>
-      <nav className="pagination">
-        <ul>
-          <li
-            onClick={() => {
-              console.log(currentPage);
-              setCurrentPage(currentPage - 1);
-            }}
-          >
-            Prev
-          </li>
 
-          <li
-            onClick={() => {
-              console.log(currentPage);
+      <div className="pagination-container">
+        <div
+          onClick={() => {
+            setCurrentPage(currentPage - 1);
+          }}
+          className="pagination-arrows"
+        >
+          <i className="fas fa-chevron-circle-left "></i>
+        </div>
 
-              setCurrentPage(currentPage + 1);
-            }}
-          >
-            Next
-          </li>
-        </ul>
-      </nav>
+        <div className="pagination">
+          <ul>
+            {Array.from(Array(data.total_pages).keys())
+              .slice(
+                currentPage >= 5 ? currentPage - 3 : 0,
+                currentPage >= 5 ? currentPage + 2 : 5
+              )
+              .map((page) => (
+                <li
+                  key={page}
+                  onClick={() => {
+                    setCurrentPage(page + 1);
+                  }}
+                  className={currentPage === page + 1 ? "active" : ""}
+                >
+                  {page + 1}
+                </li>
+              ))}
+            {/* {currentPage >= 5 && currentPage < data.total_pages - 1 && (
+              <>
+                <li
+                  onClick={() => {
+                    setCurrentPage(currentPage + 1);
+                  }}
+                >
+                  {currentPage + 2}
+                </li>
+              </>
+            )} */}
+            {currentPage >= data.total_pages - 1 && (
+              <li
+                onClick={() => {
+                  setCurrentPage(currentPage + 1);
+                }}
+              >
+                {currentPage + 2}
+              </li>
+            )}
+          </ul>
+        </div>
+
+        <div
+          onClick={() => {
+            setCurrentPage(currentPage + 1);
+          }}
+          className="pagination-arrows"
+        >
+          <i className="fas fa-chevron-circle-right "></i>
+        </div>
+      </div>
     </>
   );
 }
