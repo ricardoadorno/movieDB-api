@@ -27,7 +27,12 @@ function SearchResults() {
   );
 
   if (error) return <div>Error fetching data</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="loader_container">
+        <div className="loader" />
+      </div>
+    );
   return (
     <div className="container">
       <Header />
@@ -46,6 +51,7 @@ function SearchResults() {
       <div className="pagination-container">
         <div
           onClick={() => {
+            window.scrollTo(0, 0);
             setCurrentPage(currentPage - 1);
           }}
           className="pagination-arrows"
@@ -64,6 +70,7 @@ function SearchResults() {
                 <li
                   key={page}
                   onClick={() => {
+                    window.scrollTo(0, 0);
                     setCurrentPage(page + 1);
                   }}
                   className={currentPage === page + 1 ? "active" : ""}
@@ -75,6 +82,7 @@ function SearchResults() {
               <>
                 <li
                   onClick={() => {
+                    window.scrollTo(0, 0);
                     setCurrentPage(currentPage + 1);
                   }}
                 >
@@ -87,6 +95,7 @@ function SearchResults() {
 
         <div
           onClick={() => {
+            window.scrollTo(0, 0);
             setCurrentPage(currentPage + 1);
           }}
           className="pagination-arrows"

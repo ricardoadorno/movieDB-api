@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 
 import { useQuery } from "react-query";
-import { useState } from "react";
 
 const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 
@@ -23,34 +22,31 @@ function MovieDetails() {
   );
 
   if (error) return <div>Error fetching data</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="loader_container">
+        <div className="loader" />
+      </div>
+    );
 
   return (
-    <article
-      className="grid "
-      style={{
-        margin: "4rem auto",
-        maxWidth: "1000px",
-      }}
-    >
-      <img
-        src={`
+    <div className="movie_details">
+      <div className="movie_details-container">
+        <div className="content-container">
+          <Link to="/">
+            <i className="fas fa-arrow-left"></i>
+          </Link>
+          <h1>{data.title}</h1>
+          <p>{data.overview}</p>
+        </div>
+        <img
+          src={`
         ${IMG_PATH + data.poster_path}
       `}
-        alt="poster"
-        style={{
-          width: "90%",
-          margin: "0 auto",
-        }}
-      />
-      <div>
-        <Link to="/">
-          <i className="fas fa-arrow-left"></i>
-        </Link>
-        <h1>{data.title}</h1>
-        <p>{data.overview}</p>
+          alt="poster"
+        />
       </div>
-    </article>
+    </div>
   );
 }
 

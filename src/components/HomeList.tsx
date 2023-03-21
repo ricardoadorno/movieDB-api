@@ -21,7 +21,12 @@ function HomeList() {
   );
 
   if (error) return <div>Error fetching data</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="loader-container">
+        <div className="loader" />
+      </div>
+    );
   return (
     <>
       <h2>Popular Movies</h2>
@@ -35,6 +40,8 @@ function HomeList() {
       <div className="pagination-container">
         <div
           onClick={() => {
+            window.scrollTo(0, 0);
+
             setCurrentPage(currentPage - 1);
           }}
           className="pagination-arrows"
@@ -53,6 +60,7 @@ function HomeList() {
                 <li
                   key={page}
                   onClick={() => {
+                    window.scrollTo(0, 0);
                     setCurrentPage(page + 1);
                   }}
                   className={currentPage === page + 1 ? "active" : ""}
@@ -64,6 +72,8 @@ function HomeList() {
               <>
                 <li
                   onClick={() => {
+            window.scrollTo(0, 0);
+
                     setCurrentPage(currentPage + 1);
                   }}
                 >
@@ -74,6 +84,8 @@ function HomeList() {
             {currentPage >= data.total_pages - 1 && (
               <li
                 onClick={() => {
+                  window.scrollTo(0, 0);
+
                   setCurrentPage(currentPage + 1);
                 }}
               >
@@ -85,6 +97,8 @@ function HomeList() {
 
         <div
           onClick={() => {
+            window.scrollTo(0, 0);
+
             setCurrentPage(currentPage + 1);
           }}
           className="pagination-arrows"

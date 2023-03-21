@@ -3,7 +3,7 @@ import SeachBox from "./SeachBox";
 
 export default function Header() {
   return (
-    <div>
+    <div className="header">
       <div className="flex">
         <Link to="/" reloadDocument={true}>
           <h1>Movie DB Api</h1>

@@ -14,8 +14,9 @@ const handleRatingColor = (rating: any) => {
 };
 
 function Card({ movie }: { movie: MoviesType }) {
+  if (!movie.poster_path) return null;
   return (
-    <article className="card">
+    <div className="card">
       <Link className="link" to={`/movie/${movie.id}`}>
         <img
           src={`
@@ -30,15 +31,18 @@ function Card({ movie }: { movie: MoviesType }) {
           {movie.title}
         </Link>
 
-        <div className="card_rating">
-          <div style={{ color: `${handleRatingColor(movie.vote_average)}` }}>
-            {movie.vote_average}
+        <div className="card_rating-container">
+          <div
+            className="card_rating-number"
+            style={{ color: `${handleRatingColor(movie.vote_average)}` }}
+          >
+            {movie.vote_average.toFixed(1)}
           </div>
           <i className="fas fa-star card_rating-icon"></i>
         </div>
       </div>
       <p>{movie.overview}</p>
-    </article>
+    </div>
   );
 }
 
