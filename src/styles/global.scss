@@ -186,13 +186,12 @@ body {
   }
 }
 
-.movie_details {
-  max-width: 90%;
+.movie__details {
   margin: 4rem auto;
-  max-width: 50%;
+  max-width: 80%;
   text-align: start;
 
-  .movie_details-container {
+  .movie__details-container {
     display: flex;
     background-color: $primary-700;
     border-radius: 1rem;
@@ -208,8 +207,48 @@ body {
     img {
       flex: 1 1 auto;
       width: 50%;
-      object-fit: cover;
       border-radius: 0 1rem 1rem 0;
+    }
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  &-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    span {
+      padding: 0.2rem 0.5rem;
+      background-color: $secondary-600;
+      border-radius: 1rem;
+    }
+  }
+}
+
+.similar__movies {
+  &-container {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .similar__movie {
+    background-color: $primary-800;
+    border-radius: 0.5rem;
+    text-align: center;
+
+    p {
+      padding: 0.5rem;
+      text-align: start;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 0.5rem;
     }
   }
 }
